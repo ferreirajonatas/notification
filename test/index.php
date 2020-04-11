@@ -6,21 +6,21 @@ use Notification\Email;
 
 $newEmail = new Email(
     2,
-    "smtp",
-    "youremail@example.com",
-    "Password",
-    "tls",
+    "mail.host.com",
+    "your@email.com",
+    "your-pass",
+    "smtp secure (tls / ssl)",
     "587",
-    "sendemail@example.com",
-    "Team name"
+    "from@email.com",
+    "From Name"
 );
 $newEmail->sendMail(
     "email subject",
     "<p>This is a <b>test</b> email!</p>",
-    "user@example.com",
-    "User1",
-    "user@example.com",
-    "User 2"
+    "reply@email.com",
+    "Replay Name",
+    "address@email.com",
+    "Address Name"
 );
 
 var_dump($newEmail);
