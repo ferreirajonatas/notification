@@ -9,22 +9,22 @@ class Email
 {
     private $mail = \stdClass::class;
 
-    public function __construct()
+    public function __construct($stpDebug, $host, $user, $pass, $smtpSecure, $port, $setFromEmail, $setFromName )
     {
         $this->mail = new PHPMailer(true);
         //Server settings
-        $this->mail->SMTPDebug = 2;                      // Enable verbose debug output
-        $this->mail->isSMTP();                                            // Send using SMTP
-        $this->mail->Host       = 'smtp1.example.com';                    // Set the SMTP server to send through
-        $this->mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $this->mail->Username   = 'user@example.com';                     // SMTP username
-        $this->mail->Password   = 'password';                               // SMTP password
-        $this->mail->SMTPSecure = 'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-        $this->mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+        $this->mail->SMTPDebug = $stpDebug;                                // Enable verbose debug output
+        $this->mail->isSMTP();                                             // Send using SMTP
+        $this->mail->Host       = $host;                                   // Set the SMTP server to send through
+        $this->mail->SMTPAuth   = true;                                    // Enable SMTP authentication
+        $this->mail->Username   = $user;                                   // SMTP username
+        $this->mail->Password   = $pass;                                   // SMTP password
+        $this->mail->SMTPSecure = $smtpSecure;                             // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+        $this->mail->Port       = $port;                                   // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
         $this->mail->CharSet = 'utf-8';
         $this->mail->setLanguage('br');
         $this->mail->isHTML(true);
-        $this->mail->setFrom('user@example.com', 'Team example');
+        $this->mail->setFrom($setFromEmail, $setFromName);
     }
 
     public function sendMail($subject, $body, $replayEmail, $replayName, $addressEmail, $addressName)
@@ -38,7 +38,7 @@ class Email
         try {
             $this->mail->send();
         }catch (Exception $e){
-            echo "Error sending the e-mai: {$this->mail->ErrorInfo} {$e->getMessage()}";
+            echo "Error sending this e-mail: {$this->mail->ErrorInfo} {$e->getMessage()}";
         }
     }
 }
