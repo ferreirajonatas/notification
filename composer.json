@@ -7,8 +7,20 @@
         {
             "name": "Jonatas Ferreira",
             "email": "jonatas.sferreira@outlook.com",
-			"homepage":"https://ferreirajonatas.com/",
+			"homepage":"https://ferreirajonatas.com",
 			"role":"Software Engineer"
+        },
+        {
+            "name": "Gustavo Web",
+            "email": "gustavo@upinside.com.br",
+            "homepage":"https://www.upinside.com.br",
+            "role":"Developer of this library and tutor of the Composer na Prática course"
+        },
+        {
+            "name": "Robson V. Leite",
+            "email": "robson@upinside.com.br",
+            "homepage":"https://www.upinside.com.br",
+            "role":"CEO and Founder UpInside Treinamentos"
         }
     ],
     "minimum-stability": "dev",
